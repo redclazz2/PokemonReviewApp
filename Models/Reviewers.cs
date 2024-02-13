@@ -1,10 +1,10 @@
 ﻿namespace PokemonReviewApp.Models
 {
-	public class Reviewer
+	public class Reviewers
 	{
 		public int Id { get; set; }
 		public string FirstName { get; set; }
 		public string LastName { get; set; }
-		ICollection<Review> Reviews { get; set;}
+		ICollection<Reviews> Reviews { get; set;}
 	}
 }

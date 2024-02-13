@@ -1,10 +1,10 @@
 ﻿namespace PokemonReviewApp.Models
 {
-	public class PokemonCategory
+	public class PokemonCategories
 	{
 		public int PokemonId { get; set; }
 		public int CategoryId { get; set; }
-		public Pokemon Pokemon { get; set; }
-		public Category category { get; set; }
+		public Pokemons Pokemon { get; set; }
+		public Categories Category { get; set; }
 	}
 }
