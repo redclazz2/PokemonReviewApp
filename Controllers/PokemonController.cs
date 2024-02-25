@@ -11,9 +11,9 @@ namespace PokemonReviewApp.Controllers
 
 	public class PokemonController:Controller
 	{
-		private readonly IMapper _mapper;
-
+        private readonly IMapper _mapper;
 		public IPokemonRepository _pokemonRepository { get; set; }
+
         public PokemonController(IPokemonRepository pokemonRepository, IMapper mapper)
         {
             _pokemonRepository = pokemonRepository;
@@ -55,7 +55,7 @@ namespace PokemonReviewApp.Controllers
 
 		}
 
-        [HttpGet("{Id}/rating")]
+        [HttpGet("Rating/{Id}")]
 		[ProducesResponseType(200, Type = typeof(decimal))]
 		[ProducesResponseType(400)]
         public IActionResult getPokemonRating(int Id)
