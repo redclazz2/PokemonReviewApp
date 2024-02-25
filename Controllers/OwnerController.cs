@@ -34,7 +34,7 @@ namespace PokemonReviewApp.Controllers
 		}
 
 		[HttpGet("{id}")]
-		[ProducesResponseType(200, Type = typeof(Owners))]
+		[ProducesResponseType(200, Type = typeof(OwnerDto))]
 		[ProducesResponseType(400)]
 		public IActionResult GetOwner(int id) {
 			if (!_ownerRepository.OwnerExists(id))
