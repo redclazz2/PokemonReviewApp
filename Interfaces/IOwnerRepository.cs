@@ -4,10 +4,10 @@ namespace PokemonReviewApp.Interfaces
 {
 	public interface IOwnerRepository
 	{
-		ICollection<Owners> GetOwners();
-		Owners GetOwner(int id);
-		ICollection<Owners> GetOwnersOfAPokemon(int pokemonId);
-		ICollection<Pokemons> GetPokemonByOwner(int ownerId);
+		ICollection<Owner> GetOwners();
+		Owner GetOwner(int id);
+		ICollection<Owner> GetOwnersOfAPokemon(int pokemonId);
+		ICollection<Pokemon> GetPokemonByOwner(int ownerId);
 		bool OwnerExists(int ownerId);
 	}
 }

@@ -12,22 +12,22 @@ namespace PokemonReviewApp.Repository
 			this._context = context;
 		}
 
-		public Owners GetOwner(int id)
+		public Owner GetOwner(int id)
 		{
 			return _context.Owners.Where(x => x.Id == id).FirstOrDefault();
 		}
 
-		public ICollection<Owners> GetOwners()
+		public ICollection<Owner> GetOwners()
 		{
 			return _context.Owners.OrderBy(x => x.Id).ToList();
 		}
 
-		public ICollection<Owners> GetOwnersOfAPokemon(int pokemonId)
+		public ICollection<Owner> GetOwnersOfAPokemon(int pokemonId)
 		{
 			return _context.PokemonOwners.Where(p => p.PokemonId == pokemonId).Select(o => o.Owner).ToList();
 		}
 
-		public ICollection<Pokemons> GetPokemonByOwner(int ownerId)
+		public ICollection<Pokemon> GetPokemonByOwner(int ownerId)
 		{
 			return _context.PokemonOwners.Where(o => o.OwnerId == ownerId).Select(p => p.Pokemon).ToList();
 		}

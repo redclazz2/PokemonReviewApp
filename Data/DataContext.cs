@@ -7,14 +7,14 @@ namespace PokemonReviewApp.Data
 	{
 		public DataContext(DbContextOptions<DataContext> options) : base(options){}
 
-		public DbSet<Categories> Categories { get; set; }
-		public DbSet<Countries> Countries { get; set; }
-		public DbSet<Owners> Owners { get; set; }
-		public DbSet<Pokemons> Pokemon { get; set; }
+		public DbSet<Category> Categories { get; set; }
+		public DbSet<Country> Countries { get; set; }
+		public DbSet<Owner> Owners { get; set; }
+		public DbSet<Pokemon> Pokemon { get; set; }
 		public DbSet<PokemonOwners> PokemonOwners { get; set; }
 		public DbSet<PokemonCategories> PokemonCategories { get; set; }
-		public DbSet<Reviews> Reviews { get; set; }
-		public DbSet<Reviewers> Reviewers { get; set; }
+		public DbSet<Review> Reviews { get; set; }
+		public DbSet<Reviewer> Reviewers { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{

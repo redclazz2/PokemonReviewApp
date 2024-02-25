@@ -16,17 +16,17 @@ namespace PokemonReviewApp.Repository
 			_mapper = mapper;
 		}
 
-		public Reviews GetReview(int id)
+		public Review GetReview(int id)
 		{
 			return _context.Reviews.Where(r => r.Id == id).FirstOrDefault();	
 		}
 
-		public ICollection<Reviews> GetReviews()
+		public ICollection<Review> GetReviews()
 		{
 			return _context.Reviews.OrderBy(r => r.Id).ToList();
 		}
 
-		public ICollection<Reviews> GetReviewsOfAPokemon(int pokemonId)
+		public ICollection<Review> GetReviewsOfAPokemon(int pokemonId)
 		{
 			return _context.Reviews.Where(r => r.Pokemon.Id == pokemonId).ToList();
 		}

@@ -18,20 +18,36 @@ namespace PokemonReviewApp.Repository
 			return _context.Categories.Any(c => c.Id == id);
 		}
 
-		public ICollection<Categories> GetCategories()
+		public bool CreateCategory(Category category)
+		{
+			//Change Tracker
+			//Is this adding, updating or modifying?
+			//Conected vs Disconnected
+			_context.Add(category);
+			return Save();
+		}
+
+		public ICollection<Category> GetCategories()
 		{
 			return _context.Categories.OrderBy(c => c.Id).ToList();
 		}
 
-		public Categories GetCategory(int id)
+		public Category GetCategory(int id)
 		{
 			return _context.Categories.Where(c => c.Id == id).FirstOrDefault();
 		}
 
-		public ICollection<Pokemons> GetPokemonByCategory(int id)
+		public ICollection<Pokemon> GetPokemonByCategory(int id)
 		{
 			//You gotta select the pokemon from the nested (Entity Framework) Entity.
 			return _context.PokemonCategories.Where(e => e.CategoryId == id).Select(c => c.Pokemon).ToList();
+		}
+
+		public bool Save()
+		{
+			//Actual SQL will be created and sent to the database.
+			var _saved = _context.SaveChanges();
+			return _saved > 0 ? true : false;
 		}
 	}
 }

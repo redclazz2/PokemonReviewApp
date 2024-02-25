@@ -12,12 +12,12 @@ namespace PokemonReviewApp.Repository
 			_context = context;
 		}
 
-		public Pokemons GetPokemon(int id)
+		public Pokemon GetPokemon(int id)
 		{
 			return _context.Pokemon.Where(p => p.Id == id).FirstOrDefault();
 		}
 
-		public Pokemons GetPokemon(string name)
+		public Pokemon GetPokemon(string name)
 		{
 			return _context.Pokemon.Where(p => p.Name == name).FirstOrDefault();
 		}
@@ -32,7 +32,7 @@ namespace PokemonReviewApp.Repository
 			return (decimal)(review.Sum(r => r.Rating) / review.Count());
 		}
 
-		public ICollection<Pokemons> GetPokemons()
+		public ICollection<Pokemon> GetPokemons()
 		{
 			return _context.Pokemon.OrderBy(p => p.Id).ToList();
 		}

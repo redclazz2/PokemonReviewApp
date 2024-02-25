@@ -67,7 +67,7 @@ namespace PokemonReviewApp.Controllers
 		}
 
 		[HttpGet("PokemonFromOwner/{ownerId}")]
-		[ProducesResponseType(200, Type = typeof(List<Pokemons>))]
+		[ProducesResponseType(200, Type = typeof(List<Pokemon>))]
 		[ProducesResponseType(400)]
 		public IActionResult GetPokemonByOwner(int ownerId)
 		{

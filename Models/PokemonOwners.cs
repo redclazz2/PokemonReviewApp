@@ -4,7 +4,7 @@
 	{
 		public int PokemonId { get; set; }
 		public int OwnerId {  get; set; }
-		public Pokemons Pokemon { get; set; }
-		public Owners Owner { get; set; }
+		public Pokemon Pokemon { get; set; }
+		public Owner Owner { get; set; }
 	}
 }

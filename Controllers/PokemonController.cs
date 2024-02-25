@@ -21,7 +21,7 @@ namespace PokemonReviewApp.Controllers
 		}
 
         [HttpGet]
-        [ProducesResponseType(200, Type = typeof(IEnumerable<Pokemons>))]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Pokemon>))]
         public IActionResult getPokemons()
         {
             var pokemons = _mapper.Map<List<PokemonDto>>(_pokemonRepository.GetPokemons());
@@ -36,7 +36,7 @@ namespace PokemonReviewApp.Controllers
         }
 
 		[HttpGet("{Id}")]
-		[ProducesResponseType(200, Type = typeof(Pokemons))]
+		[ProducesResponseType(200, Type = typeof(Pokemon))]
 		[ProducesResponseType(400)]
         public IActionResult getPokemon(int Id)
         {
