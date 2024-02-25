@@ -70,5 +70,28 @@ namespace PokemonReviewApp.Controllers
 				return BadRequest(ModelState);
 			}
 		}
+
+
+		[HttpPost]
+		[ProducesResponseType(204)]
+		[ProducesResponseType(400)]
+		public IActionResult CreateReview([FromQuery] int pokemonId, [FromQuery] int reviewerId,[FromBody] ReviewDto reviewCreate)
+		{
+			if (reviewCreate == null)
+				return BadRequest(ModelState);
+
+			if (!ModelState.IsValid)
+				return BadRequest(ModelState);
+
+			var reviewMap = _mapper.Map<Review>(reviewCreate);
+
+			if (!_reviewRepository.CreateReview(pokemonId,reviewerId,reviewMap))
+			{
+				ModelState.AddModelError("", "Something went wrong when creating a review");
+				return StatusCode(500, ModelState);
+			}
+
+			return Ok("Success.");
+		}
 	}
 }

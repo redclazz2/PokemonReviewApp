@@ -10,6 +10,13 @@ namespace PokemonReviewApp.Repository
 		public ReviewerRepository(DataContext context) {
 			this._context = context;
 		}
+
+		public bool CreateReviewer(Reviewer reviewer)
+		{
+			_context.Add(reviewer);
+			return Save();
+		}
+
 		public Reviewer GetReviewer(int id)
 		{
 			return _context.Reviewers.Where(r => r.Id == id).FirstOrDefault();
@@ -28,6 +35,12 @@ namespace PokemonReviewApp.Repository
 		public bool ReviewerExists(int id)
 		{
 			return _context.Reviewers.Any(r => r.Id == id);
+		}
+
+		public bool Save()
+		{
+			var _saved = _context.SaveChanges();
+			return _saved > 0 ? true : false;
 		}
 	}
 }
