@@ -13,6 +13,7 @@ namespace PokemonReviewApp.Helper
             CreateMap<Countries,CountryDto>();
             CreateMap<Owners,OwnerDto>();
             CreateMap<Reviews,ReviewDto>();
+            CreateMap<Reviewers, ReviewerDto>();
         }
     }
 }
