@@ -2,6 +2,7 @@
 using PokemonReviewApp.Data;
 using PokemonReviewApp.Interfaces;
 using PokemonReviewApp.Models;
+using System.Security.Cryptography.Xml;
 
 namespace PokemonReviewApp.Repository
 {
@@ -51,6 +52,12 @@ namespace PokemonReviewApp.Repository
 		{
 			var _saved = _context.SaveChanges();
 			return _saved > 0 ? true : false;
+		}
+
+		public bool UpdateCountry(Country country)
+		{
+			_context.Update(country);
+			return Save();
 		}
 	}
 }
