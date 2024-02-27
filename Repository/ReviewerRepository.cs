@@ -42,5 +42,11 @@ namespace PokemonReviewApp.Repository
 			var _saved = _context.SaveChanges();
 			return _saved > 0 ? true : false;
 		}
+
+		public bool UpdateReviewer(Reviewer reviewer)
+		{
+			_context.Update(reviewer);
+			return Save();
+		}
 	}
 }
